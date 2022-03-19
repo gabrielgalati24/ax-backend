@@ -13,7 +13,27 @@ const userSchema =  new Schema({
         type:String,
         required:true
 
-    }
+    },
+    lastName:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+  
+    },
+    phone:{
+        type:String,
+        required:true,
+    },
+    roninID:{
+        type:String,
+        required:true,
+    },
+    cedula:{
+        type:String,
+        required:true,
+    },
 });
 //   const Blog = mongoose.model('Blog', blogSchema);
 export default model('User', userSchema);

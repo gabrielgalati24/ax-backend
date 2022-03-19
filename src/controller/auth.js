@@ -16,12 +16,22 @@ export const getAllUsers = async (req, res) => {
 }
 
 export const createUser = async (req, res = response) => {
+  console.log(req.body);
   try{
-    const { name, password } = req.body;
+    const { name, password,            lastName,
+      email,
+      phone,
+      roninID,
+      cedula } = req.body;
 
     const user = new User({
       name,
       password,
+      lastName,
+      email,
+      phone,
+      roninID,
+      cedula
     });
     //encrypt password
     const salt = bcrypt.genSaltSync();
@@ -38,7 +48,8 @@ export const createUser = async (req, res = response) => {
       user,
       token,
     });
-  }catch{
+  }catch (error){
+    console.log(error);
     res.json({
       ok: false,
       message: "ya existe un usuario con ese nombre",
