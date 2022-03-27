@@ -41,7 +41,7 @@ export const updateUser = async (req, res) => {
     }
 }
 export const createUser = async (req, res = response) => {
-  console.log(req.body);
+
   try{
     const { name, password,            lastName,
       email,
