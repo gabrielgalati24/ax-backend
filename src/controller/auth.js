@@ -14,7 +14,18 @@ export const getAllUsers = async (req, res) => {
         res.status(500).json({ msg: "Server Error" });
     }
 }
-
+export const getUser = async (req, res) => {
+  console.log(req.params.id);
+  console.log("232323");
+    const { id } = req.body;
+      try {
+          const user = await User.findById(id);
+          res.json(user );
+      } catch (error) {
+          console.log(error);
+          res.status(500).json({ msg: "Server Error" });
+      }
+}
 export const createUser = async (req, res = response) => {
   console.log(req.body);
   try{
