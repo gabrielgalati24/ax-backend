@@ -26,6 +26,20 @@ export const getUser = async (req, res) => {
           res.status(500).json({ msg: "Server Error" });
       }
 }
+
+export const updateUser = async (req, res) => {
+    const { id } = req.body;
+    try {
+        const user = await User.findByIdAndUpdate(id, req.body, {
+            new: true,
+            runValidators: true,
+        });
+        res.json(user);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ msg: "Server Error" });
+    }
+}
 export const createUser = async (req, res = response) => {
   console.log(req.body);
   try{

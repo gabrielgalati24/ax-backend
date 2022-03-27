@@ -1,5 +1,5 @@
 import {response, Router} from 'express'
-import {createUser,login,renewToken, getAllUsers,getUser} from '../controller/auth.js'
+import {createUser,login,renewToken, getAllUsers,getUser,updateUser} from '../controller/auth.js'
 import { createCoach,addBecados,getAllCoach,deleteBecados,getCoachById , getAllBecados} from '../controller/coach.js'
 import {validateJWT} from '../helpers/jwtValidator.js'
 const router = Router();
@@ -17,6 +17,8 @@ router.post('/renew',validateJWT, renewToken )
 router.get('/users', getAllUsers )
 
 router.post('/users/id', getUser )
+
+router.post('/users/update', updateUser )
 
 router.post('/coach',createCoach)
 
